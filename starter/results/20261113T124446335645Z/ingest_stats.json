@@ -1,0 +1,44 @@
+{
+  "A": {
+    "seconds_including_reingest_check": 41.45784360000107,
+    "stored_chunks": 135,
+    "reingest_ids_equal": true,
+    "usage_delta": {
+      "api_requests": 5,
+      "cache_hits": 0,
+      "embedded_inputs": 135,
+      "prompt_tokens": 37737,
+      "api_seconds": 39.84560070000589,
+      "reported_cost_usd": 0.00037737000000000003,
+      "responses_without_cost": 0
+    }
+  },
+  "B": {
+    "seconds_including_reingest_check": 33.10295090000727,
+    "stored_chunks": 149,
+    "reingest_ids_equal": true,
+    "usage_delta": {
+      "api_requests": 5,
+      "cache_hits": 12,
+      "embedded_inputs": 137,
+      "prompt_tokens": 35515,
+      "api_seconds": 31.41820580001513,
+      "reported_cost_usd": 0.00035515000000000004,
+      "responses_without_cost": 0
+    }
+  },
+  "C": {
+    "seconds_including_reingest_check": 2.532540100000915,
+    "stored_chunks": 149,
+    "reingest_ids_equal": true,
+    "usage_delta": {
+      "api_requests": 0,
+      "cache_hits": 149,
+      "embedded_inputs": 0,
+      "prompt_tokens": 0,
+      "api_seconds": 0.0,
+      "reported_cost_usd": 0.0,
+      "responses_without_cost": 0
+    }
+  }
+}

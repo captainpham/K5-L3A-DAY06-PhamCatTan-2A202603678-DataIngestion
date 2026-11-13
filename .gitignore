@@ -7,4 +7,5 @@ __pycache__/
 !.env.example
 .DS_Store
 .pytest_cache/
+.cache/
 *.sqlite

@@ -1,0 +1,21 @@
+{
+  "description": "Ánh xạ section_group từ phạm vi trang của PDF. Dùng cho mọi chunk, không suy ra từ gold của câu hỏi.",
+  "page_numbering": "1-based physical PDF page",
+  "documents": [
+    {
+      "document_id": "2605.17456v1",
+      "source": "data/2605.17456v1.pdf",
+      "sections": [
+        {"section_group": "main", "pages": [1, 2, 3, 4, 5, 6, 7, 8, 9]},
+        {"section_group": "appendix", "pages": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]}
+      ]
+    },
+    {
+      "document_id": "2606.06224v2",
+      "source": "data/2606.06224v2.pdf",
+      "sections": [
+        {"section_group": "main", "pages": [2, 3, 4, 5, 6, 7, 8, 9]}
+      ]
+    }
+  ]
+}

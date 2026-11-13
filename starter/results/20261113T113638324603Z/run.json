@@ -1,0 +1,104 @@
+{
+  "run_id": "20261113T113638324603Z",
+  "timestamp_utc": "2026-11-13T11:36:38.333983+00:00",
+  "status": "failed",
+  "stage": "all",
+  "split": "dev",
+  "config": {
+    "manifest_sha256": "270739b6158cca5bc27d5c18c0fc50274f405192f854c4fd09607177ffe068b4",
+    "benchmark_sha256": "89c6a8aab461cfc7ee0eba90d4785dd8b210aad46e43e3e9bb9b578acedaea4d",
+    "metadata_sha256": "fdb5774a79fc83315c9fbd84e4e8644cf1daa808e9c6c705521dbb67e57d3fd6",
+    "implementation_sha256": {
+      "ingestion.py": "543e6e8d6c087fb23e074229f6d8372778ee2dd0b42b4692744b559732ad0b81",
+      "chunking.py": "229290a48e968943cbc8ac41027042b42acb9e2b39a163593e60700f85bca0d1",
+      "embeddings.py": "1be88c9d8ee6c9f52a71466b71d4afe387b43bbb8eaf610e995cd3dadc145a04",
+      "store.py": "45099a9983ddde8360c0a5deeedc6b94a81d132e0b0daefc25bf3bdb2ec0295b",
+      "evaluation.py": "2c98c4b62a150739692bebc73962e6ea74c593a2c61e4a8ec467cd163d40c6b1",
+      "corpus.py": "f40d6914ae88d658971fb5b8ba2369936667e115c7a692297cd7c815f039b940",
+      "run.py": "04d70a7ea11767d2bdeab1bd7ea7c67254f6a1bf3171fc52cb00acf8b81fc946"
+    },
+    "strategies": {
+      "A": {
+        "method": "fixed",
+        "size": 500,
+        "overlap": 50,
+        "filter": false
+      },
+      "B": {
+        "method": "paragraph",
+        "size": 500,
+        "filter": false
+      },
+      "C": {
+        "method": "paragraph",
+        "size": 500,
+        "filter": true
+      }
+    },
+    "pages": 31,
+    "search": "exact_cosine",
+    "top_k": 3
+  },
+  "chunk_stats": {
+    "A": {
+      "count": 272,
+      "characters": 129000,
+      "min_characters": 52,
+      "max_characters": 500,
+      "mean_characters": 474.2647058823529,
+      "p50_characters": 500,
+      "p95_characters": 500
+    },
+    "B": {
+      "count": 299,
+      "characters": 116742,
+      "min_characters": 48,
+      "max_characters": 500,
+      "mean_characters": 390.44147157190633,
+      "p50_characters": 413,
+      "p95_characters": 497
+    },
+    "C": {
+      "count": 299,
+      "characters": 116742,
+      "min_characters": 48,
+      "max_characters": 500,
+      "mean_characters": 390.44147157190633,
+      "p50_characters": 413,
+      "p95_characters": 497
+    }
+  },
+  "python": "3.12.16",
+  "libraries": {
+    "pypdf": "6.21.4",
+    "psycopg": "3.3.8",
+    "python-dotenv": "1.2.4"
+  },
+  "corpus_review": "Programmatic text checks only; visual content review remains required.",
+  "prepare_seconds": 2.5756118999997852,
+  "api_usage": {
+    "api_requests": 9,
+    "cache_hits": 1,
+    "embedded_inputs": 272,
+    "prompt_tokens": 40307,
+    "api_seconds": 28.90278639999451,
+    "reported_cost_usd": 0.00040307,
+    "responses_without_cost": 0
+  },
+  "embedding": {
+    "provider": "openrouter",
+    "model": "qwen/qwen3-embedding-8b",
+    "requested_dimensions": null,
+    "query_instruction": "Given a question, retrieve relevant passages from scientific papers.",
+    "document_prefix": "",
+    "encoding_format": "float"
+  },
+  "dimensions": 4096,
+  "experiment_fingerprint": "626986920e2c68f2d3a8f4eff5b331e7444d2d01820aa95a7d8568864e1087d5",
+  "database": {
+    "postgres": "16.16 (Debian 16.16-1.pgdg12+1)",
+    "pgvector": "0.8.7"
+  },
+  "error_type": "DataError",
+  "error": "DataError"
+}

@@ -1,0 +1,36 @@
+{
+  "selected_strategy": "A",
+  "experiment_fingerprint": "1a38c6b30f28f685e6bccebcc41b4db551e539805f67df1e07a78b6af274ff9f",
+  "selected_on": "dev",
+  "dev_summary": {
+    "A:dev": {
+      "strategy": "A",
+      "split": "dev",
+      "questions": 15,
+      "hit1_count": 5,
+      "hit3_count": 9,
+      "hit_at_1": 0.3333333333333333,
+      "hit_at_3": 0.6
+    },
+    "B:dev": {
+      "strategy": "B",
+      "split": "dev",
+      "questions": 15,
+      "hit1_count": 5,
+      "hit3_count": 7,
+      "hit_at_1": 0.3333333333333333,
+      "hit_at_3": 0.4666666666666667
+    },
+    "C:dev": {
+      "strategy": "C",
+      "split": "dev",
+      "questions": 15,
+      "hit1_count": 5,
+      "hit3_count": 7,
+      "hit_at_1": 0.3333333333333333,
+      "hit_at_3": 0.4666666666666667
+    }
+  },
+  "criteria": "Hit@3 desc, Hit@1 desc, total chunk characters asc, strategy name asc",
+  "timestamp_utc": "2026-11-13T12:46:07.377671+00:00"
+}

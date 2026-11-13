@@ -1,0 +1,29 @@
+{
+  "A:test": {
+    "strategy": "A",
+    "split": "test",
+    "questions": 5,
+    "hit1_count": 1,
+    "hit3_count": 1,
+    "hit_at_1": 0.2,
+    "hit_at_3": 0.2
+  },
+  "B:test": {
+    "strategy": "B",
+    "split": "test",
+    "questions": 5,
+    "hit1_count": 3,
+    "hit3_count": 3,
+    "hit_at_1": 0.6,
+    "hit_at_3": 0.6
+  },
+  "C:test": {
+    "strategy": "C",
+    "split": "test",
+    "questions": 5,
+    "hit1_count": 3,
+    "hit3_count": 3,
+    "hit_at_1": 0.6,
+    "hit_at_3": 0.6
+  }
+}

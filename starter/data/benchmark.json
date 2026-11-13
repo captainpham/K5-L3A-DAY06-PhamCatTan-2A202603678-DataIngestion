@@ -1,0 +1,316 @@
+{
+  "benchmark_id": "mil-papers-v1",
+  "version": 1,
+  "description": "Bộ câu hỏi tiếng Việt, evidence tiếng Anh từ PDF. Chia trước khi chạy retrieval.",
+  "page_numbering": "1-based physical PDF page",
+  "questions": [
+    {
+      "id": "Q01",
+      "split": "dev",
+      "type": "truc_tiep",
+      "question": "GCE-MIL đề xuất ba tiêu chí nào để tối ưu trực tiếp chất lượng bằng chứng?",
+      "expected_answer": "Sufficiency, Necessity và Recoverability (S/N/R).",
+      "gold_source_id": "2605.17456v1",
+      "gold_page": 1,
+      "evidence_quote": "The central premise is that evidence quality should\nbe optimized directly through explicit criteria—Sufficiency, Necessity, and Recov-\nerability (S/N/R)—rather than inherited as a byproduct of classification.",
+      "filter": null,
+      "verification": {
+        "method": "exact substring of pypdf page extraction",
+        "visual_pdf_review": false
+      }
+    },
+    {
+      "id": "Q02",
+      "split": "dev",
+      "type": "dien_dat_lai",
+      "question": "Trong phần nội dung chính, GCE-MIL thay thế backbone MIL hay bổ sung lên backbone hiện có?",
+      "expected_answer": "Là wrapper bổ sung; kiến trúc MIL gốc giữ nguyên. Evidence gate được đưa vào bằng attention-logit bias, feature reweighting hoặc hybrid theo kiểu aggregation.",
+      "gold_source_id": "2605.17456v1",
+      "gold_page": 3,
+      "evidence_quote": "It is a wrapper rather than a replacement backbone: the host MIL architecture remains\nunchanged, and the evidence gate is injected as attention-logit bias, feature reweighting, or a hybrid\naccording to the host aggregation type.",
+      "filter": {
+        "section_group": "main"
+      },
+      "verification": {
+        "method": "exact substring of pypdf page extraction",
+        "visual_pdf_review": false
+      }
+    },
+    {
+      "id": "Q03",
+      "split": "dev",
+      "type": "truc_tiep",
+      "question": "Trong mô tả biểu diễn patch của GCE-MIL, embedding từ pretrained encoder có số chiều bao nhiêu?",
+      "expected_answer": "1024 chiều trong toàn bộ thiết lập được mô tả.",
+      "gold_source_id": "2605.17456v1",
+      "gold_page": 3,
+      "evidence_quote": "A pretrained encoder maps each patch xi to a fixed-dimensional embedding\nhi ∈R d (d= 1024 throughout).",
+      "filter": null,
+      "verification": {
+        "method": "exact substring of pypdf page extraction",
+        "visual_pdf_review": false
+      }
+    },
+    {
+      "id": "Q04",
+      "split": "dev",
+      "type": "dieu_kien",
+      "question": "Trong GCE-MIL, text embedding của anchor có được cập nhật trong quá trình huấn luyện không? Những thành phần nào được học?",
+      "expected_answer": "Text embedding được tính một lần và cố định; adapter, bridge, selector và tham số host MIL được học.",
+      "gold_source_id": "2605.17456v1",
+      "gold_page": 6,
+      "evidence_quote": "The text embeddings are computed once and fixed during training, and only the\nadapter, bridge, selector, and host MIL parameters are learned.",
+      "filter": null,
+      "verification": {
+        "method": "exact substring of pypdf page extraction",
+        "visual_pdf_review": false
+      }
+    },
+    {
+      "id": "Q05",
+      "split": "dev",
+      "type": "truc_tiep",
+      "question": "Nhiệt độ của continuous selector trong GCE-MIL được anneal từ giá trị nào đến giá trị nào và nhằm mục đích gì?",
+      "expected_answer": "Từ 1.0 xuống 0.4; làm gate có xu hướng gần rời rạc hơn để thuận lợi khôi phục tập bằng chứng khi inference.",
+      "gold_source_id": "2605.17456v1",
+      "gold_page": 6,
+      "evidence_quote": "where νx = 0 is a centering constant and T is a temperature that is annealed from 1.0 to 0.4 during\ntraining. This annealing gradually pushes the gate distribution toward a bimodal regime (Figure 1,\nmiddle panel), making the continuous selector increasingly discrete-like and facilitating recovery at\ninference time.",
+      "filter": null,
+      "verification": {
+        "method": "exact substring of pypdf page extraction",
+        "visual_pdf_review": false
+      }
+    },
+    {
+      "id": "Q06",
+      "split": "dev",
+      "type": "dieu_kien",
+      "question": "Evidence budget dùng trong benchmark chính của GCE-MIL là bao nhiêu và được chọn trên dữ liệu nào?",
+      "expected_answer": "ρ = 0.05, được chọn bằng validation sweep trong Appendix Table 16; budget lớn hơn chỉ là các điểm phân tích độ nhạy.",
+      "gold_source_id": "2605.17456v1",
+      "gold_page": 7,
+      "evidence_quote": "The reported benchmark uses the operating\nevidence budget ρ= 0.05 , selected by the validation sweep in Appendix Table 16; larger budgets are\nreported as sensitivity points rather than mixed into the main tables.",
+      "filter": null,
+      "verification": {
+        "method": "exact substring of pypdf page extraction",
+        "visual_pdf_review": false
+      }
+    },
+    {
+      "id": "Q07",
+      "split": "dev",
+      "type": "truc_tiep",
+      "question": "Hai trọng số loss budget và grounding của GCE-MIL là bao nhiêu, được chọn và giữ cố định như thế nào?",
+      "expected_answer": "λb = 0.1 và λg = 0.5; chọn trên BRACS validation folds rồi giữ cố định giữa các dataset và backbone.",
+      "gold_source_id": "2605.17456v1",
+      "gold_page": 7,
+      "evidence_quote": "The weights λb = 0.1 and λg = 0.5 define the reported cross-dataset setting\nand are kept fixed across datasets and backbones after selection on BRACS validation folds.",
+      "filter": null,
+      "verification": {
+        "method": "exact substring of pypdf page extraction",
+        "visual_pdf_review": false
+      }
+    },
+    {
+      "id": "Q08",
+      "split": "dev",
+      "type": "gioi_han",
+      "question": "Lý thuyết trong phụ lục GCE-MIL có khẳng định classifier tối ưu toàn cục không, và faithfulness ở cấp classifier được kiểm tra thế nào?",
+      "expected_answer": "Không. Lý thuyết là các phát biểu ở cấp coverage của noisy-OR utility; classifier faithfulness được đánh giá thực nghiệm bằng keep/remove interventions và localization CAMELYON-16 với annotation mức pixel.",
+      "gold_source_id": "2605.17456v1",
+      "gold_page": 15,
+      "evidence_quote": "The results in this appendix are coverage-level statements about the noisy-\nOR utility, not claims of global classifier optimality. Submodularity justifies the marginal-gain\nrecovery objective under fixed anchor responses, while the conditional interventional bound\nexplains when uncovered anchor mass can upper-bound omitted representation contribution.\nClassifier-level faithfulness is therefore evaluated empirically through keep/remove interventions\nand, separately, through CAMELYON-16 localization against pixel-level annotations.",
+      "filter": null,
+      "verification": {
+        "method": "exact substring of pypdf page extraction",
+        "visual_pdf_review": false
+      }
+    },
+    {
+      "id": "Q09",
+      "split": "dev",
+      "type": "metadata_filter",
+      "question": "Chỉ xét phần phụ lục: Proposition 4 của GCE-MIL nói gì về quan hệ suy ra giữa Sufficiency, Necessity và Recoverability?",
+      "expected_answer": "Ba tiêu chí độc lập logic: nói chung, không tiêu chí nào kéo theo một trong hai tiêu chí còn lại với một model class cố định.",
+      "gold_source_id": "2605.17456v1",
+      "gold_page": 15,
+      "evidence_quote": "Proposition 4(S/N/R are logically independent).For a fixed model class, none of Sufficiency,\nNecessity, and Recoverability implies either of the other two in general.",
+      "filter": {
+        "section_group": "appendix"
+      },
+      "verification": {
+        "method": "exact substring of pypdf page extraction",
+        "visual_pdf_review": false
+      }
+    },
+    {
+      "id": "Q10",
+      "split": "dev",
+      "type": "dien_dat_lai",
+      "question": "Vì sao noisy-OR trong GCE-MIL ưu tiên bằng chứng bổ sung thay vì thêm các patch dư thừa?",
+      "expected_answer": "Noisy-OR bão hòa khi một concept đã được bao phủ; thêm patch dư thừa tạo marginal gain thấp hơn, nên greedy recovery thiên về bằng chứng bổ sung.",
+      "gold_source_id": "2605.17456v1",
+      "gold_page": 16,
+      "evidence_quote": "This saturation behavior is important for Necessity: once an anchor\nis covered, adding another redundant patch has lower marginal gain, so greedy recovery is biased\ntoward complementary evidence.",
+      "filter": null,
+      "verification": {
+        "method": "exact substring of pypdf page extraction",
+        "visual_pdf_review": false
+      }
+    },
+    {
+      "id": "Q11",
+      "split": "dev",
+      "type": "truc_tiep",
+      "question": "Symbolic XAI dùng những toán tử logic cơ bản nào để xây query và ý nghĩa của chúng là gì?",
+      "expected_answer": "∧ là AND, ∨ là OR và ¬ là NOT.",
+      "gold_source_id": "2606.06224v2",
+      "gold_page": 3,
+      "evidence_quote": "The framework further introduces the notion ofqueries, which are relationships constructed by\ncombining feature identifiersI, J∈ Nwith logical connectives such as∧,∨, and¬, representing\nAND, OR, and NOT, respectively.",
+      "filter": null,
+      "verification": {
+        "method": "exact substring of pypdf page extraction",
+        "visual_pdf_review": false
+      }
+    },
+    {
+      "id": "Q12",
+      "split": "dev",
+      "type": "metadata_filter",
+      "question": "Chỉ xét nội dung chính: trong symbolic representation space của Symb-xMIL, mỗi chiều của vector biểu diễn điều gì?",
+      "expected_answer": "Mỗi chiều là mức alignment giữa hành vi mô hình và một logical rule cụ thể trong tập query Q.",
+      "gold_source_id": "2606.06224v2",
+      "gold_page": 5,
+      "evidence_quote": "In this space, each dimension corresponds\nto alignment with a specific logical rule inQ.",
+      "filter": {
+        "section_group": "main"
+      },
+      "verification": {
+        "method": "exact substring of pypdf page extraction",
+        "visual_pdf_review": false
+      }
+    },
+    {
+      "id": "Q13",
+      "split": "dev",
+      "type": "truc_tiep",
+      "question": "Trong thí nghiệm MIL mô phỏng của Symb-xMIL, encoder và mô hình aggregation được huấn luyện thế nào, đạt test performance bao nhiêu?",
+      "expected_answer": "Encoder convolution hai lớp được huấn luyện đồng thời với TransMIL từ khởi tạo ngẫu nhiên; các model đạt test performance 99.99%.",
+      "gold_source_id": "2606.06224v2",
+      "gold_page": 6,
+      "evidence_quote": "We used a two-layer convolutional encoder trained jointly with TransMIL [45]\nfrom random initialization. All models achieved near-perfect test performance (99.99%), confirming\nthat the simulated interaction patterns were learned by the corresponding model.",
+      "filter": null,
+      "verification": {
+        "method": "exact substring of pypdf page extraction",
+        "visual_pdf_review": false
+      }
+    },
+    {
+      "id": "Q14",
+      "split": "dev",
+      "type": "dien_dat_lai",
+      "question": "Trong semantic map của thí nghiệm MNIST thuộc Symb-xMIL, nhóm R gồm những chữ số nào?",
+      "expected_answer": "R là tất cả chữ số còn lại ngoài 4 và 7.",
+      "gold_source_id": "2606.06224v2",
+      "gold_page": 6,
+      "evidence_quote": "Since “4” and “7” were the main digits of our simulations, we grouped bag instances\ninto three semantic features,N={4,7,R}, where “R” stands forrest, i.e., all digits except 4 and 7.",
+      "filter": null,
+      "verification": {
+        "method": "exact substring of pypdf page extraction",
+        "visual_pdf_review": false
+      }
+    },
+    {
+      "id": "Q15",
+      "split": "dev",
+      "type": "dieu_kien",
+      "question": "Khi chuyển các Normal patch từ slide C3 sang slide normal đối chứng trong Symb-xMIL, có bao nhiêu ca đổi dự đoán và tại ngưỡng nào?",
+      "expected_answer": "21/25 ca, tương đương 84%, đổi dự đoán tại decision threshold 0.5.",
+      "gold_source_id": "2606.06224v2",
+      "gold_page": 8,
+      "evidence_quote": "we performed a counterfactual patch-\ntransfer experiment, inserting Normal patches from C3 slides into matched ground-truth normal\nslides while controlling for acquisition-related confounders. If these patches carry no such signal,\nthe recipient slides should remain classified as normal. However, the counterfactual intervention\nflipped 21/25 cases at a 0.5 decision threshold (84%).",
+      "filter": null,
+      "verification": {
+        "method": "exact substring of pypdf page extraction",
+        "visual_pdf_review": false
+      }
+    },
+    {
+      "id": "Q16",
+      "split": "test",
+      "type": "dieu_kien",
+      "question": "Ở bước discrete recovery của GCE-MIL, nếu threshold không chọn được patch nào thì xử lý ra sao và greedy repair hướng tới coverage target nào?",
+      "expected_answer": "Dùng top-1 patch làm fallback; sau đó thêm patch theo marginal coverage gain đến coverage target c = 0.95.",
+      "gold_source_id": "2605.17456v1",
+      "gold_page": 7,
+      "evidence_quote": "The initial subset S0 ={i:π i >\n0.5} is obtained by thresholding; if empty, the top-1 patch is used as a fallback. Greedy repair then\nadds patches in decreasing order of marginal coverage gain until the coverage target c= 0.95 is met.",
+      "filter": null,
+      "verification": {
+        "method": "exact substring of pypdf page extraction",
+        "visual_pdf_review": false
+      }
+    },
+    {
+      "id": "Q17",
+      "split": "test",
+      "type": "metadata_filter",
+      "question": "Chỉ xét nội dung chính: GCE-MIL đánh giá trên bao nhiêu dataset phân loại và bao nhiêu cohort survival? Nêu tên các tập.",
+      "expected_answer": "4 tập phân loại: BRACS, PANDA, TCGA-BRCA, TCGA-NSCLC; 5 cohort survival: TCGA-LUAD, STAD, UCEC, KIRP, KIRC.",
+      "gold_source_id": "2605.17456v1",
+      "gold_page": 7,
+      "evidence_quote": "The evaluation covers 9 datasets spanning two tasks: 4 classification benchmarks (BRACS,\nPANDA, TCGA-BRCA, TCGA-NSCLC) and 5 survival cohorts (TCGA-LUAD, STAD, UCEC,\nKIRP, KIRC).",
+      "filter": {
+        "section_group": "main"
+      },
+      "verification": {
+        "method": "exact substring of pypdf page extraction",
+        "visual_pdf_review": false
+      }
+    },
+    {
+      "id": "Q18",
+      "split": "test",
+      "type": "truc_tiep",
+      "question": "Với ba semantic concept 4, 7 và R, thí nghiệm synthetic của Symb-xMIL tạo bao nhiêu symbolic query không dư thừa?",
+      "expected_answer": "39 symbolic query không dư thừa.",
+      "gold_source_id": "2606.06224v2",
+      "gold_page": 6,
+      "evidence_quote": "For this synthetic experiment, with|N |= 3, this yields\n39 non-redundant symbolic queries",
+      "filter": null,
+      "verification": {
+        "method": "exact substring of pypdf page extraction",
+        "visual_pdf_review": false
+      }
+    },
+    {
+      "id": "Q19",
+      "split": "test",
+      "type": "gioi_han",
+      "question": "Tác giả Symb-xMIL yêu cầu diễn giải các phát hiện về survival của nhóm HPV-like như thế nào và vì sao?",
+      "expected_answer": "Coi là các phát hiện tạo giả thuyết (hypothesis-generating) vì phân tích mang tính khám phá, không phải kết luận xác nhận.",
+      "gold_source_id": "2606.06224v2",
+      "gold_page": 9,
+      "evidence_quote": "Because the analysis is exploratory, the findings should be per-\nceived as hypothesis-generating.",
+      "filter": null,
+      "verification": {
+        "method": "exact substring of pypdf page extraction",
+        "visual_pdf_review": false
+      }
+    },
+    {
+      "id": "Q20",
+      "split": "test",
+      "type": "gioi_han",
+      "question": "Theo kết luận của paper, Symb-xMIL phụ thuộc vào hai yếu tố chất lượng nào và hướng cải thiện tương ứng là gì?",
+      "expected_answer": "Phụ thuộc chất lượng semantic features và độ robust của model dưới perturbation; cần cải thiện semantic mappings và robustness giữa các dataset.",
+      "gold_source_id": "2606.06224v2",
+      "gold_page": 9,
+      "evidence_quote": "While broadly applicable across MIL tasks, Symb-xMIL depends on the quality of semantic features\nand on model robustness under perturbations. Improving the reliability of semantic mappings and\nrobustness across datasets is an important direction for future work.",
+      "filter": null,
+      "verification": {
+        "method": "exact substring of pypdf page extraction",
+        "visual_pdf_review": false
+      }
+    }
+  ]
+}

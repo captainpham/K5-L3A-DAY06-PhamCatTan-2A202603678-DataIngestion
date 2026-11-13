@@ -1,0 +1,29 @@
+{
+  "A:dev": {
+    "strategy": "A",
+    "split": "dev",
+    "questions": 15,
+    "hit1_count": 5,
+    "hit3_count": 9,
+    "hit_at_1": 0.3333333333333333,
+    "hit_at_3": 0.6
+  },
+  "B:dev": {
+    "strategy": "B",
+    "split": "dev",
+    "questions": 15,
+    "hit1_count": 5,
+    "hit3_count": 7,
+    "hit_at_1": 0.3333333333333333,
+    "hit_at_3": 0.4666666666666667
+  },
+  "C:dev": {
+    "strategy": "C",
+    "split": "dev",
+    "questions": 15,
+    "hit1_count": 5,
+    "hit3_count": 7,
+    "hit_at_1": 0.3333333333333333,
+    "hit_at_3": 0.4666666666666667
+  }
+}
