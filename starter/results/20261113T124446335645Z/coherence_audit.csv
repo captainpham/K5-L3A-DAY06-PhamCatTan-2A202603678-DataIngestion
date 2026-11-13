@@ -1,0 +1,444 @@
+﻿strategy,document_id,page,source_position,chunk_id,text,coherence_0_1_2,reason,reviewer
+A,2605.17456v1,1,1556,65331aabfbbcf687617b2911ce554111a287b760f1b6177b62b53e5fc2d95c77,"ce). The central premise is that evidence quality should
+be optimized directly through explicit criteria—Sufficiency, Necessity, and Recov-
+erability (S/N/R)—rather than inherited as a byproduct of classification. GCE-MIL
+is a backbone-agnostic wrapper implemented through three injection modes and
+three evidence components: a grounding mechanism that aligns selection with
+domain-specific concepts, noisy-OR coverage that acts as a differentiable proxy
+for interventional evidence search, and threshold-plus-repair recovery that converts
+continuous selectors into discrete subsets through marginal-guided repair. Across 9
+backbones ×9 datasets (81 configurations), GCE-MIL improves average Macro-F1
+by 0.024 and C-index by 0.014, reduces the continuous-discrete gap by 4–7×, and
+increases complement degradation by 2–4×. With optional tile prefiltering after
+discrete recovery, inference runs up to 5× faster while retaining 0.989× full-bag
+utility.
+1 Introduction
+Whole-slide images contain thousa",1,"Giữ gần đủ đoạn S/N/R và ba thành phần, nhưng đầu là đuôi từ trước và cuối cắt giữa phần Introduction.",Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+B,2605.17456v1,1,1556,c655bdd6c8deab0e5ba34a72f52ffd009673ad800e57e9fcbceb5979a4f843b2,"The central premise is that evidence quality should
+be optimized directly through explicit criteria—Sufficiency, Necessity, and Recov-
+erability (S/N/R)—rather than inherited as a byproduct of classification. GCE-MIL
+is a backbone-agnostic wrapper implemented through three injection modes and
+three evidence components: a grounding mechanism that aligns selection with
+domain-specific concepts, noisy-OR coverage that acts as a differentiable proxy
+for interventional evidence search, and threshold-plus-repair recovery that converts
+continuous selectors into discrete subsets through marginal-guided repair. Across 9
+backbones ×9 datasets (81 configurations), GCE-MIL improves average Macro-F1
+by 0.024 and C-index by 0.014, reduces the continuous-discrete gap by 4–7×, and
+increases complement degradation by 2–4×.",2,"Giữ trọn đoạn premise S/N/R, wrapper, ba thành phần và kết quả chính, không cắt giữa câu.",Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+C,2605.17456v1,1,1556,c655bdd6c8deab0e5ba34a72f52ffd009673ad800e57e9fcbceb5979a4f843b2,"The central premise is that evidence quality should
+be optimized directly through explicit criteria—Sufficiency, Necessity, and Recov-
+erability (S/N/R)—rather than inherited as a byproduct of classification. GCE-MIL
+is a backbone-agnostic wrapper implemented through three injection modes and
+three evidence components: a grounding mechanism that aligns selection with
+domain-specific concepts, noisy-OR coverage that acts as a differentiable proxy
+for interventional evidence search, and threshold-plus-repair recovery that converts
+continuous selectors into discrete subsets through marginal-guided repair. Across 9
+backbones ×9 datasets (81 configurations), GCE-MIL improves average Macro-F1
+by 0.024 and C-index by 0.014, reduces the continuous-discrete gap by 4–7×, and
+increases complement degradation by 2–4×.",2,"Giữ trọn đoạn premise S/N/R, wrapper, ba thành phần và kết quả chính, không cắt giữa câu.",Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+A,2605.17456v1,2,1566,90943615f578318f3f481c140fd858bc776ce93fd041984e1c2cdaf9ee8a4194,"3 0.0003±0.0003
+32 Sufficient-prefix 1.3682±0.0675 29.00±5.34 7.83±1.54 0.0113±0.0016 0.1085±0.0261 0.0779±0.0094 0.0687±0.0203
+32 Attention top-k1.2785±0.0536 22.70±4.27 5.15±1.75 0.0877±0.0225 0.1260±0.0343 0.1371±0.0337 0.1358±0.0318
+32 Random top-k0.2156±0.0173 2.86±1.20 0.00±0.00 0.1335±0.0093 0.0001±0.0002 0.0001±0.0002 0.0001±0.0002
+Figure 1:Three evidence failures in classification-optimized MIL.(Left) Attention top- k achieves
+only 0.640 keep-only Macro-F1 vs. GCE 0.722: attention is not sufficient evidence. (Middle) The
+continuous selector becomes bimodal during training, enabling discretization with C-D gap 0.004.
+(Right) Adding GCE preserves0.99×full-bag performance across backbones.
+Attention-regularized variants such as ACMIL, AEM, and ASMIL stabilize or deconcentrate attention
+maps [Zhang et al., 2024, 2025, Ye et al., 2026]. All these methods, however, share an implicit
+assumption that classification accuracy is the optimization target and that attention or score rankin",1,Caption Figure 1 rõ hơn nhưng chunk còn trộn hàng Table 1 không header và cắt giữa assumption ở cuối.,Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+B,2605.17456v1,2,1566,5f4b939528960a21af41f4bc5a3e46a8beda4168cf13d1aab95b140d782cf249,"top-k1.2785±0.0536 22.70±4.27 5.15±1.75 0.0877±0.0225 0.1260±0.0343 0.1371±0.0337 0.1358±0.0318
+32 Random top-k0.2156±0.0173 2.86±1.20 0.00±0.00 0.1335±0.0093 0.0001±0.0002 0.0001±0.0002 0.0001±0.0002
+Figure 1:Three evidence failures in classification-optimized MIL.(Left) Attention top- k achieves
+only 0.640 keep-only Macro-F1 vs. GCE 0.722: attention is not sufficient evidence. (Middle) The
+continuous selector becomes bimodal during training, enabling discretization with C-D gap 0.004.
+(Right) Adding GCE preserves0.99×full-bag performance across backbones.
+Attention-regularized variants such as ACMIL, AEM, and ASMIL stabilize or deconcentrate attention
+maps [Zhang et al., 2024, 2025, Ye et al., 2026]. All these methods, however, share an implicit
+assumption that classification accuracy is the optimization target and that attention or score rankings
+are an interpretable byproduct. This conflates two distinct goals: predicting correctly and learning
+correct evidence.",1,Caption và đoạn phân biệt prediction/evidence hoàn chỉnh nhưng chunk mở đầu bằng hàng số không có header.,Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+C,2605.17456v1,2,1566,5f4b939528960a21af41f4bc5a3e46a8beda4168cf13d1aab95b140d782cf249,"top-k1.2785±0.0536 22.70±4.27 5.15±1.75 0.0877±0.0225 0.1260±0.0343 0.1371±0.0337 0.1358±0.0318
+32 Random top-k0.2156±0.0173 2.86±1.20 0.00±0.00 0.1335±0.0093 0.0001±0.0002 0.0001±0.0002 0.0001±0.0002
+Figure 1:Three evidence failures in classification-optimized MIL.(Left) Attention top- k achieves
+only 0.640 keep-only Macro-F1 vs. GCE 0.722: attention is not sufficient evidence. (Middle) The
+continuous selector becomes bimodal during training, enabling discretization with C-D gap 0.004.
+(Right) Adding GCE preserves0.99×full-bag performance across backbones.
+Attention-regularized variants such as ACMIL, AEM, and ASMIL stabilize or deconcentrate attention
+maps [Zhang et al., 2024, 2025, Ye et al., 2026]. All these methods, however, share an implicit
+assumption that classification accuracy is the optimization target and that attention or score rankings
+are an interpretable byproduct. This conflates two distinct goals: predicting correctly and learning
+correct evidence.",1,Caption và đoạn phân biệt prediction/evidence hoàn chỉnh nhưng chunk mở đầu bằng hàng số không có header.,Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+A,2605.17456v1,3,2139,dfaf98dbf01141f05234a5ad0c812f5afd5f849c0c2efe010d2b08a10b914dd8,"rediction, however, while evidence sufficiency, necessity, and
+recoverability are usually evaluated only after training. GCE-MIL is therefore orthogonal: it plugs
+into these backbones and adds evidence objectives rather than competing as another pooling module.
+Sparse selection and post-hoc attribution address explanation more directly but still leave S/N/R
+under-specified. L0, Concrete, and Gumbel relaxations provide differentiable gates [Louizos et al.,
+2018, Maddison et al., 2017, Jang et al., 2017], yet they do not ground selected patches in pathology
+concepts or model multi-source diagnostic coverage. Gradient saliency, integrated gradients, and
+occlusion provide post-hoc scores [Simonyan et al., 2013, Sundararajan et al., 2017, Zeiler and
+Fergus, 2014], but the predictor is already fixed and the thresholded subset is not optimized to be
+sufficient or necessary. GCE-MIL differs by training selection and prediction jointly, grounding gates
+with TITAN text anchors, and evaluating th",1,"Đọc được các nhóm phương pháp và khác biệt GCE, nhưng đầu mất nửa câu và cuối cắt phần đánh giá recovered subset.",Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+B,2605.17456v1,3,2139,1088d27aaea67f0455c283234ada745edb24e65b55aabd00d24b6d30064f978c,"Pooling design is
+addressed by ABMIL, CLAM, DSMIL, and TransMIL [Ilse et al., 2018, Lu et al., 2021, Li et al., 2021,
+Shao et al., 2021]; attention concentration is mitigated by ACMIL, AEM, and ASMIL [Zhang et al.,
+2024, 2025, Ye et al., 2026]; overfitting is reduced by DTFD-MIL and MHIM-MIL [Zhang et al., 2022,
+Tang et al., 2023]; spatial context and efficiency are modeled by CAMIL and HDMIL [Fourkioti
+et al., 2024, Dong et al., 2025]. These works are useful host architectures for GCE-MIL. Their
+optimization target remains slide-level prediction, however, while evidence sufficiency, necessity, and
+recoverability are usually evaluated only after training. GCE-MIL is therefore orthogonal: it plugs
+into these backbones and adds evidence objectives rather than competing as another pooling module.
+Sparse selection and post-hoc attribution address explanation more directly but still leave S/N/R
+under-specified.",2,Đủ tên nhóm backbone và lập luận vì sao GCE thêm evidence objectives; các câu kết thúc đầy đủ.,Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+C,2605.17456v1,3,2139,1088d27aaea67f0455c283234ada745edb24e65b55aabd00d24b6d30064f978c,"Pooling design is
+addressed by ABMIL, CLAM, DSMIL, and TransMIL [Ilse et al., 2018, Lu et al., 2021, Li et al., 2021,
+Shao et al., 2021]; attention concentration is mitigated by ACMIL, AEM, and ASMIL [Zhang et al.,
+2024, 2025, Ye et al., 2026]; overfitting is reduced by DTFD-MIL and MHIM-MIL [Zhang et al., 2022,
+Tang et al., 2023]; spatial context and efficiency are modeled by CAMIL and HDMIL [Fourkioti
+et al., 2024, Dong et al., 2025]. These works are useful host architectures for GCE-MIL. Their
+optimization target remains slide-level prediction, however, while evidence sufficiency, necessity, and
+recoverability are usually evaluated only after training. GCE-MIL is therefore orthogonal: it plugs
+into these backbones and adds evidence objectives rather than competing as another pooling module.
+Sparse selection and post-hoc attribution address explanation more directly but still leave S/N/R
+under-specified.",2,Đủ tên nhóm backbone và lập luận vì sao GCE thêm evidence objectives; các câu kết thúc đầy đủ.,Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+A,2605.17456v1,4,1702,18754f937c068ab1bcd8d8ce599d7f682f970f4a4ba8083bbbe0b98409112d36,"ble 4 shows this fails: keeping attention top-k drops Macro-F1 by
+0.078from the full bag, averaged across nine datasets and nine backbones.
+(P2) Unnecessity.Removing the top-attended patches should degrade the prediction if they are
+necessary evidence. However, removing attention top-k changes Macro-F1 by only 0.033 (Table 4),
+indicating the model largely recovers from the remaining patches.
+(P3) Unrecoverability.During training, the selector operates in continuous space, but at inference
+a discrete subset must be extracted by thresholding. The continuous-discrete gap reaches 0.029 for
+ABMIL attention, compared with 0.005–0.011 for GCE-wrapped backbones (Appendix Table 7),
+meaning the discrete inference-time evidence disagrees with the continuous signal used during
+training.
+These failures persist across ABMIL, TransMIL, CLAM, DSMIL, and other architectures [Ilse et al.,
+2018, Shao et al., 2021, Lu et al., 2021, Li et al., 2021]. The problem is compounded by evidence
+non-uniqueness: a",2,Các đoạn Unnecessity và Unrecoverability giữ đủ lập luận/số liệu; mảnh đầu/cuối không làm mất hai ý chính.,Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+B,2605.17456v1,4,1702,1d92e50ee6215c0af70c139d1e7c27932641589ab51cf3834857b63362702fa5,"Table 4 shows this fails: keeping attention top-k drops Macro-F1 by
+0.078from the full bag, averaged across nine datasets and nine backbones.
+(P2) Unnecessity.Removing the top-attended patches should degrade the prediction if they are
+necessary evidence. However, removing attention top-k changes Macro-F1 by only 0.033 (Table 4),
+indicating the model largely recovers from the remaining patches.
+(P3) Unrecoverability.During training, the selector operates in continuous space, but at inference
+a discrete subset must be extracted by thresholding. The continuous-discrete gap reaches 0.029 for
+ABMIL attention, compared with 0.005–0.011 for GCE-wrapped backbones (Appendix Table 7),
+meaning the discrete inference-time evidence disagrees with the continuous signal used during
+training.
+These failures persist across ABMIL, TransMIL, CLAM, DSMIL, and other architectures [Ilse et al.,
+2018, Shao et al., 2021, Lu et al., 2021, Li et al., 2021].",2,"Đủ các đoạn failure P2/P3, số liệu và phát biểu hệ quả, ranh giới câu được giữ.",Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+C,2605.17456v1,4,1702,1d92e50ee6215c0af70c139d1e7c27932641589ab51cf3834857b63362702fa5,"Table 4 shows this fails: keeping attention top-k drops Macro-F1 by
+0.078from the full bag, averaged across nine datasets and nine backbones.
+(P2) Unnecessity.Removing the top-attended patches should degrade the prediction if they are
+necessary evidence. However, removing attention top-k changes Macro-F1 by only 0.033 (Table 4),
+indicating the model largely recovers from the remaining patches.
+(P3) Unrecoverability.During training, the selector operates in continuous space, but at inference
+a discrete subset must be extracted by thresholding. The continuous-discrete gap reaches 0.029 for
+ABMIL attention, compared with 0.005–0.011 for GCE-wrapped backbones (Appendix Table 7),
+meaning the discrete inference-time evidence disagrees with the continuous signal used during
+training.
+These failures persist across ABMIL, TransMIL, CLAM, DSMIL, and other architectures [Ilse et al.,
+2018, Shao et al., 2021, Lu et al., 2021, Li et al., 2021].",2,"Đủ các đoạn failure P2/P3, số liệu và phát biểu hệ quả, ranh giới câu được giữ.",Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+A,2605.17456v1,5,1342,a42f173bba118dc5c2a5b74fa03499aebb8aad7d9b307aca15ccf96d3958557e,"tion scores.
+• Acontinuous selector with noisy-OR coveragethat produces soft gates π∈[0,1] N , addressing
+Sufficiency(P1)by modeling multi-source evidence coverage across diagnostic concepts.
+• Adiscrete recoveryprocedure that converts π into an inference-time subset using the same
+submodular coverage utility, addressing Recoverability(P3)by keeping the discrete evidence
+close to the continuous selector.
+The backbone fθ remains structurally unchanged—GCE only adds a soft evidence mask that mod-
+ulates the backbone’s inputs. The gate π is injected according to the backbone’s aggregation type:
+as an attention-logit bias αi ←α i + logπ i for attention-based backbones (ABMIL, CLAM-SB,
+IBMIL), as feature reweighting hi ←π i ·h i for token-based backbones (TransMIL, DTFD-MIL,
+HDMIL, CAMIL), or as a hybrid of both for multi-path backbones (DSMIL, MHIM-MIL). This
+injection preserves the host backbone’s scoring head while giving GCE a consistent interface for
+evidence evaluation.
+4.2 Semantic A",1,Giữ giải thích injection cho các backbone nhưng thiếu phần đầu danh sách thành phần và kết thúc giữa heading Semantic Anchor.,Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+B,2605.17456v1,5,1342,010cdb6c7758202d283dfb27a721a91e3efcc39e9b9c731d8e77c68dd318c0ba,"The wrapper introduces three components, each targeting one of
+the S/N/R criteria identified in Section 3 (Figure 2):
+• Asemantic anchor bankthat grounds patch selection in pathology-specific concepts, addressing
+Necessity(P2)by tying evidence to diagnostic structures rather than arbitrary attention scores.
+• Acontinuous selector with noisy-OR coveragethat produces soft gates π∈[0,1] N , addressing
+Sufficiency(P1)by modeling multi-source evidence coverage across diagnostic concepts.
+• Adiscrete recoveryprocedure that converts π into an inference-time subset using the same
+submodular coverage utility, addressing Recoverability(P3)by keeping the discrete evidence
+close to the continuous selector.
+The backbone fθ remains structurally unchanged—GCE only adds a soft evidence mask that mod-
+ulates the backbone’s inputs.",2,"Có câu dẫn wrapper, đủ ba thành phần S/N/R và kết luận backbone giữ nguyên, tự hiểu được.",Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+C,2605.17456v1,5,1342,010cdb6c7758202d283dfb27a721a91e3efcc39e9b9c731d8e77c68dd318c0ba,"The wrapper introduces three components, each targeting one of
+the S/N/R criteria identified in Section 3 (Figure 2):
+• Asemantic anchor bankthat grounds patch selection in pathology-specific concepts, addressing
+Necessity(P2)by tying evidence to diagnostic structures rather than arbitrary attention scores.
+• Acontinuous selector with noisy-OR coveragethat produces soft gates π∈[0,1] N , addressing
+Sufficiency(P1)by modeling multi-source evidence coverage across diagnostic concepts.
+• Adiscrete recoveryprocedure that converts π into an inference-time subset using the same
+submodular coverage utility, addressing Recoverability(P3)by keeping the discrete evidence
+close to the continuous selector.
+The backbone fθ remains structurally unchanged—GCE only adds a soft evidence mask that mod-
+ulates the backbone’s inputs.",2,"Có câu dẫn wrapper, đủ ba thành phần S/N/R và kết luận backbone giữ nguyên, tự hiểu được.",Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+A,2605.17456v1,6,1929,664f7bc7dcaebce80379719354294ff66811a6f37c878be0d585f68eeaa7c541,"ng, while generic prompts, disease-specific prompts, and
+constrained TITAN grounding improve in order; this pattern suggests that the gain is not only an
+effect of adding selector capacity. The full TITAN anchor configuration with the constrained bridge
+further reaches0.004C-D gap and0.412complement degradation.
+4.3 Continuous Selector and Noisy-OR Coverage
+Given the anchor responses {rim}, the continuous selector determines which patches to include in
+the evidence subset. For each patch, a small MLP receives the adapted embedding ei and spatial
+coordinatesc i, and outputs a scalar scores i. The inclusion gate is computed as:
+πi =σ
+si −ν x
+T
+
+,(3)
+where νx = 0 is a centering constant and T is a temperature that is annealed from 1.0 to 0.4 during
+training. This annealing gradually pushes the gate distribution toward a bimodal regime (Figure 1,
+middle panel), making the continuous selector increasingly discrete-like and facilitating recovery at
+inference time.
+Why noisy-OR for coverage?T",1,Giữ được nội dung chính của phần selector hoặc coverage nhưng vẫn có đoạn đầu/cuối bị cắt; công thức mất bố cục.,Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+A,2605.17456v1,6,1929,d5b030ddecb30dd1068a838daccf18a5d4d708c033b7652bcf06f4ea97e95df7,"ery at
+inference time.
+Why noisy-OR for coverage?The S/N/R criteria impose specific requirements on how per-patch
+anchor responses are aggregated into coverage. Mean pooling conflates “many weak responses”
+with “one strong response,” violating coverage semantics. Attention pooling reintroduces softmax
+concentration. Noisy-OR provides the right inductive bias: for anchor m, coverage under continuous
+gatesπis
+vm(π) = 1−
+Y
+i
+(1−π irim).(4)
+This models each patch as an independent evidence channel with diminishing marginal returns. The
+class-level utility aggregates coverage across anchors:
+Uc(π) =
+X
+m
+αcmvm(π), α cm ≥0,(5)
+where αcm are learnable class-anchor weights. Crucially, noisy-OR provides closed-form marginals
+for greedy repair: ∂Uc/∂πi = Pm αcmrim Qj̸=i(1−π jrjm). The marginal gain decreases as more
+patches are selected, which is the diminishing-returns property needed for Necessity. Appendix B
+gives the corresponding modeling interpretation, including S/N/R independence, a gate-",1,Giữ được nội dung chính của phần selector hoặc coverage nhưng vẫn có đoạn đầu/cuối bị cắt; công thức mất bố cục.,Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+B,2605.17456v1,6,1929,aceb311c3ff9c27799d438dc16a10a0aa55ef5fbcb44112ec74764a6787523a2,",(3)
+where νx = 0 is a centering constant and T is a temperature that is annealed from 1.0 to 0.4 during
+training. This annealing gradually pushes the gate distribution toward a bimodal regime (Figure 1,
+middle panel), making the continuous selector increasingly discrete-like and facilitating recovery at
+inference time.
+Why noisy-OR for coverage?The S/N/R criteria impose specific requirements on how per-patch
+anchor responses are aggregated into coverage. Mean pooling conflates “many weak responses”
+with “one strong response,” violating coverage semantics. Attention pooling reintroduces softmax
+concentration. Noisy-OR provides the right inductive bias: for anchor m, coverage under continuous
+gatesπis
+vm(π) = 1−
+Y
+i
+(1−π irim).(4)
+This models each patch as an independent evidence channel with diminishing marginal returns. The
+class-level utility aggregates coverage across anchors:
+Uc(π) =
+X
+m
+αcmvm(π), α cm ≥0,(5)
+where αcm are learnable class-anchor weights. Crucially, noisy-OR",1,"Có annealing và noisy-OR coverage nhưng bắt đầu bằng đuôi công thức, kết thúc giữa câu Crucially noisy-OR; công thức mất bố cục.",Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+C,2605.17456v1,6,1929,aceb311c3ff9c27799d438dc16a10a0aa55ef5fbcb44112ec74764a6787523a2,",(3)
+where νx = 0 is a centering constant and T is a temperature that is annealed from 1.0 to 0.4 during
+training. This annealing gradually pushes the gate distribution toward a bimodal regime (Figure 1,
+middle panel), making the continuous selector increasingly discrete-like and facilitating recovery at
+inference time.
+Why noisy-OR for coverage?The S/N/R criteria impose specific requirements on how per-patch
+anchor responses are aggregated into coverage. Mean pooling conflates “many weak responses”
+with “one strong response,” violating coverage semantics. Attention pooling reintroduces softmax
+concentration. Noisy-OR provides the right inductive bias: for anchor m, coverage under continuous
+gatesπis
+vm(π) = 1−
+Y
+i
+(1−π irim).(4)
+This models each patch as an independent evidence channel with diminishing marginal returns. The
+class-level utility aggregates coverage across anchors:
+Uc(π) =
+X
+m
+αcmvm(π), α cm ≥0,(5)
+where αcm are learnable class-anchor weights. Crucially, noisy-OR",1,"Có annealing và noisy-OR coverage nhưng bắt đầu bằng đuôi công thức, kết thúc giữa câu Crucially noisy-OR; công thức mất bố cục.",Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+A,2605.17456v1,7,2008,f7908456799d1f1e09d432931b56a3a5c4227a441a855bdca6be8be7bbb00fae,"ility is monotone submodular (Proposition 1), this greedy procedure has a
+principled diminishing-returns objective rather than an unrelated post-hoc ranking. The pseudocode
+is provided in Appendix C.
+Proposition 2(Greedy recovery scope).Let π∈[0,1] N be the continuous selector, S0 ={i:π i >
+0.5} be the thresholded subset, and S∗ be the output of Algorithm 1 with coverage target c. Then the
+following statements hold:
+1. If the loop terminates by satisfying the coverage condition, then minm vm(1S∗ )≥c by construc-
+tion.
+2. Each added patch maximizes the exact one-step marginal gain of the noisy-OR utility used during
+training.
+3. If repair is restricted to a fixed-size shortlist and evaluated only as coverage maximization, the
+greedy part inherits the standard (1−1/e) approximation to the best shortlist subset of that size.
+These are coverage-level properties; they do not assert global optimality of the host classifier under
+arbitrary interventions.
+Proof sketch. The first claim follows",2,"Proposition 2 có định nghĩa, đủ ba phát biểu và giới hạn coverage-level; phần proof bị cắt không mất nội dung phát biểu chính.",Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+B,2605.17456v1,7,2008,f1a3ecdbe5fd0fc3fd40d06b533701b0a75ec0efe9d9062dc8ac65b259033e81,"Because the coverage utility is monotone submodular (Proposition 1), this greedy procedure has a
+principled diminishing-returns objective rather than an unrelated post-hoc ranking. The pseudocode
+is provided in Appendix C.
+Proposition 2(Greedy recovery scope).Let π∈[0,1] N be the continuous selector, S0 ={i:π i >
+0.5} be the thresholded subset, and S∗ be the output of Algorithm 1 with coverage target c. Then the
+following statements hold:
+1. If the loop terminates by satisfying the coverage condition, then minm vm(1S∗ )≥c by construc-
+tion.
+2. Each added patch maximizes the exact one-step marginal gain of the noisy-OR utility used during
+training.
+3. If repair is restricted to a fixed-size shortlist and evaluated only as coverage maximization, the
+greedy part inherits the standard (1−1/e) approximation to the best shortlist subset of that size.
+These are coverage-level properties; they do not assert global optimality of the host classifier under
+arbitrary interventions.
+Proof sketch.",2,Giữ đủ định nghĩa và ba phát biểu Proposition 2 cùng giới hạn; không cần proof để hiểu phát biểu.,Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+C,2605.17456v1,7,2008,f1a3ecdbe5fd0fc3fd40d06b533701b0a75ec0efe9d9062dc8ac65b259033e81,"Because the coverage utility is monotone submodular (Proposition 1), this greedy procedure has a
+principled diminishing-returns objective rather than an unrelated post-hoc ranking. The pseudocode
+is provided in Appendix C.
+Proposition 2(Greedy recovery scope).Let π∈[0,1] N be the continuous selector, S0 ={i:π i >
+0.5} be the thresholded subset, and S∗ be the output of Algorithm 1 with coverage target c. Then the
+following statements hold:
+1. If the loop terminates by satisfying the coverage condition, then minm vm(1S∗ )≥c by construc-
+tion.
+2. Each added patch maximizes the exact one-step marginal gain of the noisy-OR utility used during
+training.
+3. If repair is restricted to a fixed-size shortlist and evaluated only as coverage maximization, the
+greedy part inherits the standard (1−1/e) approximation to the best shortlist subset of that size.
+These are coverage-level properties; they do not assert global optimality of the host classifier under
+arbitrary interventions.
+Proof sketch.",2,Giữ đủ định nghĩa và ba phát biểu Proposition 2 cùng giới hạn; không cần proof để hiểu phát biểu.,Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+A,2605.17456v1,8,2533,1c08ff7b3aa5db0c77eb302f354b6471745ea35a2f2b6ab4a60e75a64dc58853,".007△0.006△0.000△0.012△0.017△0.004△0.017△0.044△0.012
+CAMIL 0.738±0.030 0.666±0.049 0.879±0.020 0.944±0.011 0.931±0.013 0.975±0.006 0.719±0.014 0.657±0.017 0.926±0.008 0.839±0.022 0.608±0.043 0.811±0.018
++GCE∆△0.039△0.054△0.029△0.006△0.000▽0.002△0.006△0.000△0.004△0.003△0.002△0.006
+HDMIL 0.781±0.027 0.707±0.040 0.891±0.018 0.940±0.010 0.927±0.012 0.970±0.006 0.746±0.011 0.696±0.013 0.932±0.006 0.866±0.019 0.603±0.035 0.835±0.017
++GCE∆△0.038△0.066△0.038△0.000△0.006△0.003△0.000△0.005△0.006△0.006△0.039△0.009
+[Zhang et al., 2022]), hard-mining (MHIM-MIL [Tang et al., 2023]), context-aware (CAMIL [Fourki-
+oti et al., 2024]), and hierarchical (HDMIL [Dong et al., 2025]). This 9×9 grid (81 configurations)
+tests whether GCE generalizes across backbone architectures and dataset characteristics. All training
+and evaluation protocol details are provided in Appendix J.
+5.2 Main Classification Results
+Table 2 reports the classification half of the9×9 benchmark; the survival half is reported in Append",1,"Có đoạn giải thích grid và main results, nhưng bảng số mở đầu không có cột và cuối cắt từ Appendix.",Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+B,2605.17456v1,8,2533,69d9d427c9e8101e6b7820237f2e2d491cad3eacbfde15d27d86eb5a6cfec452,"0.811±0.018
++GCE∆△0.039△0.054△0.029△0.006△0.000▽0.002△0.006△0.000△0.004△0.003△0.002△0.006
+HDMIL 0.781±0.027 0.707±0.040 0.891±0.018 0.940±0.010 0.927±0.012 0.970±0.006 0.746±0.011 0.696±0.013 0.932±0.006 0.866±0.019 0.603±0.035 0.835±0.017
++GCE∆△0.038△0.066△0.038△0.000△0.006△0.003△0.000△0.005△0.006△0.006△0.039△0.009
+[Zhang et al., 2022]), hard-mining (MHIM-MIL [Tang et al., 2023]), context-aware (CAMIL [Fourki-
+oti et al., 2024]), and hierarchical (HDMIL [Dong et al., 2025]). This 9×9 grid (81 configurations)
+tests whether GCE generalizes across backbone architectures and dataset characteristics. All training
+and evaluation protocol details are provided in Appendix J.
+5.2 Main Classification Results
+Table 2 reports the classification half of the9×9 benchmark; the survival half is reported in Appendix
+Table 12. The central question is whether optimizing evidence quality changes slide-level prediction,
+or merely reshuffles which patches are selected without affecting accuracy.",1,Có grid/protocol/main-results nhưng hàng số đầu mất cột và citation mở đầu thiếu đoạn trước.,Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+C,2605.17456v1,8,2533,69d9d427c9e8101e6b7820237f2e2d491cad3eacbfde15d27d86eb5a6cfec452,"0.811±0.018
++GCE∆△0.039△0.054△0.029△0.006△0.000▽0.002△0.006△0.000△0.004△0.003△0.002△0.006
+HDMIL 0.781±0.027 0.707±0.040 0.891±0.018 0.940±0.010 0.927±0.012 0.970±0.006 0.746±0.011 0.696±0.013 0.932±0.006 0.866±0.019 0.603±0.035 0.835±0.017
++GCE∆△0.038△0.066△0.038△0.000△0.006△0.003△0.000△0.005△0.006△0.006△0.039△0.009
+[Zhang et al., 2022]), hard-mining (MHIM-MIL [Tang et al., 2023]), context-aware (CAMIL [Fourki-
+oti et al., 2024]), and hierarchical (HDMIL [Dong et al., 2025]). This 9×9 grid (81 configurations)
+tests whether GCE generalizes across backbone architectures and dataset characteristics. All training
+and evaluation protocol details are provided in Appendix J.
+5.2 Main Classification Results
+Table 2 reports the classification half of the9×9 benchmark; the survival half is reported in Appendix
+Table 12. The central question is whether optimizing evidence quality changes slide-level prediction,
+or merely reshuffles which patches are selected without affecting accuracy.",1,Có grid/protocol/main-results nhưng hàng số đầu mất cột và citation mở đầu thiếu đoạn trước.,Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+A,2605.17456v1,9,1415,d163cdf6d4e7fab749a54e6921be5cab0d69575a5b02605d958446ac285bbe28,"ly a parameter increase but
+changes which patches are treated as decision-critical.
+5.4 Qualitative Evidence Behavior
+Figure 3 places the learned evidence mask next to the host attention map. The qualitative pattern
+matches the intervention diagnostics: attention highlights broad high-score regions, while GCE
+recovers a compact subset that remains spatially coherent after thresholding and repair. This figure is
+included in the main text because it clarifies what the S/N/R metrics measure at the slide level.
+5.5 Intervention and Budget-Matched Evidence
+Table 4 reports the direct intervention diagnostic for Sufficiency and Necessity. Keeping attention
+top-k changes the full-bag score by ▽0.078, whereas keeping GCE evidence changes it by only
+△0.004; removing attention changes the score by ▽0.033, but removing GCE evidence causes a
+▽0.176 drop. Table 5 controls for evidence size by forcing all subset rules to select approximately
+5% of each BRACS bag. At the same budget, attention top- k",1,"Giữ đoạn qualitative/intervention và số liệu nhưng mở đầu giữa câu, kết thúc trước kết luận same-budget comparison.",Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+B,2605.17456v1,9,1415,7b4463865eea4f5425bf2c059c11901a48cbf89c398bb61dd93190600b70b9a3,"Degr.↑
+Random-k0.431±0.054 0.043±0.012 0.048±0.015
+Attention top-k0.597±0.045 0.029±0.008 0.151±0.036
+Gradient top-k0.613±0.041 0.025±0.006 0.166±0.031
+Occlusion top-k0.628±0.038 0.022±0.005 0.196±0.039
+GCE discrete0.748±0.0320.004±0.0010.412±0.086
+to Necessity (0.377→0.403 ), showing that anchor coverage is not merely a parameter increase but
+changes which patches are treated as decision-critical.
+5.4 Qualitative Evidence Behavior
+Figure 3 places the learned evidence mask next to the host attention map. The qualitative pattern
+matches the intervention diagnostics: attention highlights broad high-score regions, while GCE
+recovers a compact subset that remains spatially coherent after thresholding and repair. This figure is
+included in the main text because it clarifies what the S/N/R metrics measure at the slide level.
+5.5 Intervention and Budget-Matched Evidence
+Table 4 reports the direct intervention diagnostic for Sufficiency and Necessity.",1,Đoạn qualitative evidence rõ nhưng có hàng Table 5 thiếu header và câu ablation mở đầu bị mất chủ thể.,Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+C,2605.17456v1,9,1415,7b4463865eea4f5425bf2c059c11901a48cbf89c398bb61dd93190600b70b9a3,"Degr.↑
+Random-k0.431±0.054 0.043±0.012 0.048±0.015
+Attention top-k0.597±0.045 0.029±0.008 0.151±0.036
+Gradient top-k0.613±0.041 0.025±0.006 0.166±0.031
+Occlusion top-k0.628±0.038 0.022±0.005 0.196±0.039
+GCE discrete0.748±0.0320.004±0.0010.412±0.086
+to Necessity (0.377→0.403 ), showing that anchor coverage is not merely a parameter increase but
+changes which patches are treated as decision-critical.
+5.4 Qualitative Evidence Behavior
+Figure 3 places the learned evidence mask next to the host attention map. The qualitative pattern
+matches the intervention diagnostics: attention highlights broad high-score regions, while GCE
+recovers a compact subset that remains spatially coherent after thresholding and repair. This figure is
+included in the main text because it clarifies what the S/N/R metrics measure at the slide level.
+5.5 Intervention and Budget-Matched Evidence
+Table 4 reports the direct intervention diagnostic for Sufficiency and Necessity.",1,Đoạn qualitative evidence rõ nhưng có hàng Table 5 thiếu header và câu ablation mở đầu bị mất chủ thể.,Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+A,2605.17456v1,15,2049,caf82ed289c36a8ec6563d866cb7f71831e52ad1387da802c16309bea41ad59a,"iscrete subsets. The following proposition states the
+assumption under which uncovered anchor mass controls this variation.
+Proposition 3(Coverage residual bounds representation variation).Let a MIL predictor decompose as
+f(X) =q(g(X)) , where q is Lq-Lipschitz and the bag representation is additive, g(X) = Pi wihi
+with wi ≥0 . Assume the anchor bank is η-complete for the omitted patch contribution: for any
+subsetS,
+
+X
+i /∈S
+wihi
+
+≤η Xm αm Yi∈S(1−r im), α m ≥0.
+Then
+∥f(X)−f(X S)∥ ≤Lqη
+X
+m
+αm
+
+1−v m(1S)
+
+.
+Proof. By Lipschitz continuity, ∥f(X)−f(X S)∥ ≤Lq∥g(X)−g(X S)∥. For the additive repre-
+sentation, g(X)−g(X S) = Pi /∈Swihi. Applying the anchor-completeness assumption gives the
+stated bound, and1−v m(1S) = Qi∈S(1−r im)by the noisy-OR definition.
+Proposition 3 is intentionally conditional. It does not claim that anchors perfectly explain every
+backbone; instead, it states what the noisy-OR objective is approximating when anchors cover the
+residual directions relevant to the host pred",1,"Có nhiều hơn giả thiết/proof của Proposition 3, nhưng công thức bị dàn phẳng và phần giải thích điều kiện còn bị cắt.",Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+B,2605.17456v1,15,2049,2d1c71b49c6e9343357145ca644d1600e6db374eb56cf4b6fea4c0af15cfa569,"uncovered anchor mass controls this variation.
+Proposition 3(Coverage residual bounds representation variation).Let a MIL predictor decompose as
+f(X) =q(g(X)) , where q is Lq-Lipschitz and the bag representation is additive, g(X) = Pi wihi
+with wi ≥0 . Assume the anchor bank is η-complete for the omitted patch contribution: for any
+subsetS,
+
+X
+i /∈S
+wihi
+
+≤η Xm αm Yi∈S(1−r im), α m ≥0.
+Then
+∥f(X)−f(X S)∥ ≤Lqη
+X
+m
+αm
+
+1−v m(1S)",1,Giả thiết và biểu thức Proposition 3 vẫn bị dàn phẳng; chunk kết thúc trước hoàn tất bound và phần giải thích.,Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)
+C,2605.17456v1,15,2049,2d1c71b49c6e9343357145ca644d1600e6db374eb56cf4b6fea4c0af15cfa569,"uncovered anchor mass controls this variation.
+Proposition 3(Coverage residual bounds representation variation).Let a MIL predictor decompose as
+f(X) =q(g(X)) , where q is Lq-Lipschitz and the bag representation is additive, g(X) = Pi wihi
+with wi ≥0 . Assume the anchor bank is η-complete for the omitted patch contribution: for any
+subsetS,
+
+X
+i /∈S
+wihi
+
+≤η Xm αm Yi∈S(1−r im), α m ≥0.
+Then
+∥f(X)−f(X S)∥ ≤Lqη
+X
+m
+αm
+
+1−v m(1S)",1,Giả thiết và biểu thức Proposition 3 vẫn bị dàn phẳng; chunk kết thúc trước hoàn tất bound và phần giải thích.,Codex (LLM-assisted review; PDF and trace checked; 2026-11-14)

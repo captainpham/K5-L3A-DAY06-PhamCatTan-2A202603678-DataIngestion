@@ -1,4 +1,4 @@
 strategy,chunking,chunk_size,overlap,metadata,filter,vectorizer,hypothesis,dev_hit1,dev_hit3,test_hit1,test_hit3,notes
-A,,,,,,,,,,,,
-B,,,,,,,,,,,,
-C,,,,,,,,,,,,
+A,fixed,500,50,source/page/section_group/title/version/pdf_sha256,none,openrouter:qwen/qwen3-embedding-8b:4096,Fixed windows baseline,5/15,7/15,,,Actual dev run: starter/results/20261113T113832345795Z; exact full-excerpt metric; manual audit pending; B/C share cache
+B,paragraph_sentence_fallback,500,0,source/page/section_group/title/version/pdf_sha256,none,openrouter:qwen/qwen3-embedding-8b:4096,Paragraph boundaries may preserve context better,4/15,6/15,,,Actual dev run: starter/results/20261113T113832345795Z; exact full-excerpt metric; manual audit pending; B/C share cache
+C,paragraph_sentence_fallback,500,0,source/page/section_group/title/version/pdf_sha256,question filter only,openrouter:qwen/qwen3-embedding-8b:4096,Metadata may improve scope compliance vs B,4/15,6/15,,,Actual dev run: starter/results/20261113T113832345795Z; exact full-excerpt metric; manual audit pending; B/C share cache

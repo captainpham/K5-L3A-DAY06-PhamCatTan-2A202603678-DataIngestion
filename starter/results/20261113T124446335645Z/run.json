@@ -1,0 +1,176 @@
+{
+  "run_id": "20261113T124446335645Z",
+  "timestamp_utc": "2026-11-13T12:44:46.335645+00:00",
+  "status": "evaluated",
+  "stage": "all",
+  "split": "dev",
+  "config": {
+    "manifest_sha256": "11383ccd8eb5b1ab69b1fa6fe00eb5e6fb9b51cae1aad3ac6fa34ebe05d60644",
+    "benchmark_sha256": "89c6a8aab461cfc7ee0eba90d4785dd8b210aad46e43e3e9bb9b578acedaea4d",
+    "metadata_sha256": "fdb5774a79fc83315c9fbd84e4e8644cf1daa808e9c6c705521dbb67e57d3fd6",
+    "implementation_sha256": {
+      "ingestion.py": "f18f967847c467836e349cb652ac01a3a232bb0b951551e396de38dadeaae2e7",
+      "chunking.py": "229290a48e968943cbc8ac41027042b42acb9e2b39a163593e60700f85bca0d1",
+      "embeddings.py": "1be88c9d8ee6c9f52a71466b71d4afe387b43bbb8eaf610e995cd3dadc145a04",
+      "store.py": "e64792bf03737dbd688f40bbd1e7f07668492c1dda28c2abdb77d2959a4a1e8a",
+      "evaluation.py": "2c98c4b62a150739692bebc73962e6ea74c593a2c61e4a8ec467cd163d40c6b1",
+      "corpus.py": "f40d6914ae88d658971fb5b8ba2369936667e115c7a692297cd7c815f039b940",
+      "run.py": "04d70a7ea11767d2bdeab1bd7ea7c67254f6a1bf3171fc52cb00acf8b81fc946"
+    },
+    "strategies": {
+      "A": {
+        "method": "fixed",
+        "size": 1000,
+        "overlap": 50,
+        "filter": false
+      },
+      "B": {
+        "method": "paragraph",
+        "size": 1000,
+        "filter": false
+      },
+      "C": {
+        "method": "paragraph",
+        "size": 1000,
+        "filter": true
+      }
+    },
+    "pages": 31,
+    "search": "exact_cosine",
+    "top_k": 3
+  },
+  "chunk_stats": {
+    "A": {
+      "count": 135,
+      "characters": 122169,
+      "min_characters": 58,
+      "max_characters": 1000,
+      "mean_characters": 904.9555555555555,
+      "p50_characters": 1000,
+      "p95_characters": 1000
+    },
+    "B": {
+      "count": 149,
+      "characters": 116884,
+      "min_characters": 87,
+      "max_characters": 1000,
+      "mean_characters": 784.4563758389262,
+      "p50_characters": 879,
+      "p95_characters": 998
+    },
+    "C": {
+      "count": 149,
+      "characters": 116884,
+      "min_characters": 87,
+      "max_characters": 1000,
+      "mean_characters": 784.4563758389262,
+      "p50_characters": 879,
+      "p95_characters": 998
+    }
+  },
+  "python": "3.12.16",
+  "libraries": {
+    "pypdf": "6.21.4",
+    "psycopg": "3.3.8",
+    "python-dotenv": "1.2.4"
+  },
+  "corpus_review": "Programmatic text checks only; visual content review remains required.",
+  "prepare_seconds": 2.5190413999953307,
+  "api_usage": {
+    "api_requests": 10,
+    "cache_hits": 177,
+    "embedded_inputs": 272,
+    "prompt_tokens": 73252,
+    "api_seconds": 71.26380650002102,
+    "reported_cost_usd": 0.0007325200000000001,
+    "responses_without_cost": 0
+  },
+  "embedding": {
+    "provider": "openrouter",
+    "model": "qwen/qwen3-embedding-8b",
+    "requested_dimensions": null,
+    "query_instruction": "Given a question, retrieve relevant passages from scientific papers.",
+    "document_prefix": "",
+    "encoding_format": "float"
+  },
+  "dimensions": 4096,
+  "experiment_fingerprint": "1a38c6b30f28f685e6bccebcc41b4db551e539805f67df1e07a78b6af274ff9f",
+  "database": {
+    "postgres": "16.16 (Debian 16.16-1.pgdg12+1)",
+    "pgvector": "0.8.7"
+  },
+  "ingest_stats": {
+    "A": {
+      "seconds_including_reingest_check": 41.45784360000107,
+      "stored_chunks": 135,
+      "reingest_ids_equal": true,
+      "usage_delta": {
+        "api_requests": 5,
+        "cache_hits": 0,
+        "embedded_inputs": 135,
+        "prompt_tokens": 37737,
+        "api_seconds": 39.84560070000589,
+        "reported_cost_usd": 0.00037737000000000003,
+        "responses_without_cost": 0
+      }
+    },
+    "B": {
+      "seconds_including_reingest_check": 33.10295090000727,
+      "stored_chunks": 149,
+      "reingest_ids_equal": true,
+      "usage_delta": {
+        "api_requests": 5,
+        "cache_hits": 12,
+        "embedded_inputs": 137,
+        "prompt_tokens": 35515,
+        "api_seconds": 31.41820580001513,
+        "reported_cost_usd": 0.00035515000000000004,
+        "responses_without_cost": 0
+      }
+    },
+    "C": {
+      "seconds_including_reingest_check": 2.532540100000915,
+      "stored_chunks": 149,
+      "reingest_ids_equal": true,
+      "usage_delta": {
+        "api_requests": 0,
+        "cache_hits": 149,
+        "embedded_inputs": 0,
+        "prompt_tokens": 0,
+        "api_seconds": 0.0,
+        "reported_cost_usd": 0.0,
+        "responses_without_cost": 0
+      }
+    }
+  },
+  "summary": {
+    "A:dev": {
+      "strategy": "A",
+      "split": "dev",
+      "questions": 15,
+      "hit1_count": 5,
+      "hit3_count": 9,
+      "hit_at_1": 0.3333333333333333,
+      "hit_at_3": 0.6
+    },
+    "B:dev": {
+      "strategy": "B",
+      "split": "dev",
+      "questions": 15,
+      "hit1_count": 5,
+      "hit3_count": 7,
+      "hit_at_1": 0.3333333333333333,
+      "hit_at_3": 0.4666666666666667
+    },
+    "C:dev": {
+      "strategy": "C",
+      "split": "dev",
+      "questions": 15,
+      "hit1_count": 5,
+      "hit3_count": 7,
+      "hit_at_1": 0.3333333333333333,
+      "hit_at_3": 0.4666666666666667
+    }
+  },
+  "wall_seconds": 81.03395690000616
+}

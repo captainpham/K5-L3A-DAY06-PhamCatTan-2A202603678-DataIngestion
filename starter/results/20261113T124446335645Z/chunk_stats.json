@@ -1,0 +1,29 @@
+{
+  "A": {
+    "count": 135,
+    "characters": 122169,
+    "min_characters": 58,
+    "max_characters": 1000,
+    "mean_characters": 904.9555555555555,
+    "p50_characters": 1000,
+    "p95_characters": 1000
+  },
+  "B": {
+    "count": 149,
+    "characters": 116884,
+    "min_characters": 87,
+    "max_characters": 1000,
+    "mean_characters": 784.4563758389262,
+    "p50_characters": 879,
+    "p95_characters": 998
+  },
+  "C": {
+    "count": 149,
+    "characters": 116884,
+    "min_characters": 87,
+    "max_characters": 1000,
+    "mean_characters": 784.4563758389262,
+    "p50_characters": 879,
+    "p95_characters": 998
+  }
+}

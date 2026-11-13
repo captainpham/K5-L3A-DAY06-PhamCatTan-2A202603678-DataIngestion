@@ -1,0 +1,186 @@
+﻿strategy,document_id,page,source_position,chunk_id,text,coherence_0_1_2,reason,reviewer
+A,2605.17456v1,1,1556,5bdbc2aab25b6ae76a221ca06bd17d5e07cd7554db68553b20e8928d0186d970,"noisy-OR coverage that acts as a differentiable proxy
+for interventional evidence search, and threshold-plus-repair recovery that converts
+continuous selectors into discrete subsets through marginal-guided repair. Across 9
+backbones ×9 datasets (81 configurations), GCE-MIL improves average Macro-F1
+by 0.024 and C-index by 0.014, reduces the continuous-discrete gap by 4–7×, and
+increases complement degradation by 2–4×. With optional tile prefiltering after
+discrete recovery, inference runs up to",,,
+B,2605.17456v1,1,1556,ee79bf3e37e3fbace96a3aacf353acddd8c90d330920b754579a064159e0af93,"GCE-MIL
+is a backbone-agnostic wrapper implemented through three injection modes and
+three evidence components: a grounding mechanism that aligns selection with
+domain-specific concepts, noisy-OR coverage that acts as a differentiable proxy
+for interventional evidence search, and threshold-plus-repair recovery that converts
+continuous selectors into discrete subsets through marginal-guided repair.",,,
+C,2605.17456v1,1,1556,ee79bf3e37e3fbace96a3aacf353acddd8c90d330920b754579a064159e0af93,"GCE-MIL
+is a backbone-agnostic wrapper implemented through three injection modes and
+three evidence components: a grounding mechanism that aligns selection with
+domain-specific concepts, noisy-OR coverage that acts as a differentiable proxy
+for interventional evidence search, and threshold-plus-repair recovery that converts
+continuous selectors into discrete subsets through marginal-guided repair.",,,
+A,2605.17456v1,2,1566,cb431c7ab44ac06f5ac9bdf49e3b41dd135bc9557681d060d3996756fc5dcec2,"ed MIL.(Left) Attention top- k achieves
+only 0.640 keep-only Macro-F1 vs. GCE 0.722: attention is not sufficient evidence. (Middle) The
+continuous selector becomes bimodal during training, enabling discretization with C-D gap 0.004.
+(Right) Adding GCE preserves0.99×full-bag performance across backbones.
+Attention-regularized variants such as ACMIL, AEM, and ASMIL stabilize or deconcentrate attention
+maps [Zhang et al., 2024, 2025, Ye et al., 2026]. All these methods, however, share an implicit
+a",,,
+B,2605.17456v1,2,1566,9539ca288197751439060c970b0747391143e7203a4d898ebbab07cfd892b0f0,"top-k1.2785±0.0536 22.70±4.27 5.15±1.75 0.0877±0.0225 0.1260±0.0343 0.1371±0.0337 0.1358±0.0318
+32 Random top-k0.2156±0.0173 2.86±1.20 0.00±0.00 0.1335±0.0093 0.0001±0.0002 0.0001±0.0002 0.0001±0.0002
+Figure 1:Three evidence failures in classification-optimized MIL.(Left) Attention top- k achieves
+only 0.640 keep-only Macro-F1 vs. GCE 0.722: attention is not sufficient evidence. (Middle) The
+continuous selector becomes bimodal during training, enabling discretization with C-D gap 0.004.",,,
+C,2605.17456v1,2,1566,9539ca288197751439060c970b0747391143e7203a4d898ebbab07cfd892b0f0,"top-k1.2785±0.0536 22.70±4.27 5.15±1.75 0.0877±0.0225 0.1260±0.0343 0.1371±0.0337 0.1358±0.0318
+32 Random top-k0.2156±0.0173 2.86±1.20 0.00±0.00 0.1335±0.0093 0.0001±0.0002 0.0001±0.0002 0.0001±0.0002
+Figure 1:Three evidence failures in classification-optimized MIL.(Left) Attention top- k achieves
+only 0.640 keep-only Macro-F1 vs. GCE 0.722: attention is not sufficient evidence. (Middle) The
+continuous selector becomes bimodal during training, enabling discretization with C-D gap 0.004.",,,
+A,2605.17456v1,3,2139,b2bd18d9fce2f1131182a81e3b3ebf4ba286071b30d075f3198d16edf52babcb,"ese works are useful host architectures for GCE-MIL. Their
+optimization target remains slide-level prediction, however, while evidence sufficiency, necessity, and
+recoverability are usually evaluated only after training. GCE-MIL is therefore orthogonal: it plugs
+into these backbones and adds evidence objectives rather than competing as another pooling module.
+Sparse selection and post-hoc attribution address explanation more directly but still leave S/N/R
+under-specified. L0, Concrete, and Gumbe",,,
+B,2605.17456v1,3,2139,980863de975bc98a7cb5111677fe5377d6cc1bebfe4858a9f9f8127bf51edfd7,"Their
+optimization target remains slide-level prediction, however, while evidence sufficiency, necessity, and
+recoverability are usually evaluated only after training. GCE-MIL is therefore orthogonal: it plugs
+into these backbones and adds evidence objectives rather than competing as another pooling module.
+Sparse selection and post-hoc attribution address explanation more directly but still leave S/N/R
+under-specified.",,,
+C,2605.17456v1,3,2139,980863de975bc98a7cb5111677fe5377d6cc1bebfe4858a9f9f8127bf51edfd7,"Their
+optimization target remains slide-level prediction, however, while evidence sufficiency, necessity, and
+recoverability are usually evaluated only after training. GCE-MIL is therefore orthogonal: it plugs
+into these backbones and adds evidence objectives rather than competing as another pooling module.
+Sparse selection and post-hoc attribution address explanation more directly but still leave S/N/R
+under-specified.",,,
+A,2605.17456v1,4,1702,92e6fec8719b64291b33f5e01c8145ba7bffd24c508ebc4243dcab63e4257db2,"Unrecoverability.During training, the selector operates in continuous space, but at inference
+a discrete subset must be extracted by thresholding. The continuous-discrete gap reaches 0.029 for
+ABMIL attention, compared with 0.005–0.011 for GCE-wrapped backbones (Appendix Table 7),
+meaning the discrete inference-time evidence disagrees with the continuous signal used during
+training.
+These failures persist across ABMIL, TransMIL, CLAM, DSMIL, and other architectures [Ilse et al.,
+2018, Shao et al",,,
+B,2605.17456v1,4,1702,367123efb858812923976f42c5e0059a5aa8088dfe3de539e9f0169d50a07692,"(P3) Unrecoverability.During training, the selector operates in continuous space, but at inference
+a discrete subset must be extracted by thresholding. The continuous-discrete gap reaches 0.029 for
+ABMIL attention, compared with 0.005–0.011 for GCE-wrapped backbones (Appendix Table 7),
+meaning the discrete inference-time evidence disagrees with the continuous signal used during
+training.",,,
+C,2605.17456v1,4,1702,367123efb858812923976f42c5e0059a5aa8088dfe3de539e9f0169d50a07692,"(P3) Unrecoverability.During training, the selector operates in continuous space, but at inference
+a discrete subset must be extracted by thresholding. The continuous-discrete gap reaches 0.029 for
+ABMIL attention, compared with 0.005–0.011 for GCE-wrapped backbones (Appendix Table 7),
+meaning the discrete inference-time evidence disagrees with the continuous signal used during
+training.",,,
+A,2605.17456v1,5,1342,a32903dc49cce8ddb4537d1c077ad89c62b07a63fe01a85d94f658d15b595971,"diagnostic structures rather than arbitrary attention scores.
+• Acontinuous selector with noisy-OR coveragethat produces soft gates π∈[0,1] N , addressing
+Sufficiency(P1)by modeling multi-source evidence coverage across diagnostic concepts.
+• Adiscrete recoveryprocedure that converts π into an inference-time subset using the same
+submodular coverage utility, addressing Recoverability(P3)by keeping the discrete evidence
+close to the continuous selector.
+The backbone fθ remains structurally uncha",,,
+B,2605.17456v1,5,1342,196480dc44eb0238d1e06ebbf248cd59912bc94d96bfcb96a93a50672bde8f0d,"recoveryprocedure that converts π into an inference-time subset using the same
+submodular coverage utility, addressing Recoverability(P3)by keeping the discrete evidence
+close to the continuous selector.
+The backbone fθ remains structurally unchanged—GCE only adds a soft evidence mask that mod-
+ulates the backbone’s inputs.",,,
+C,2605.17456v1,5,1342,196480dc44eb0238d1e06ebbf248cd59912bc94d96bfcb96a93a50672bde8f0d,"recoveryprocedure that converts π into an inference-time subset using the same
+submodular coverage utility, addressing Recoverability(P3)by keeping the discrete evidence
+close to the continuous selector.
+The backbone fθ remains structurally unchanged—GCE only adds a soft evidence mask that mod-
+ulates the backbone’s inputs.",,,
+A,2605.17456v1,6,1931,907d12a432e6d1af606b4e16217f3d5705d4ad40b16c4380c230e7c84711bc98,"gure 1,
+middle panel), making the continuous selector increasingly discrete-like and facilitating recovery at
+inference time.
+Why noisy-OR for coverage?The S/N/R criteria impose specific requirements on how per-patch
+anchor responses are aggregated into coverage. Mean pooling conflates “many weak responses”
+with “one strong response,” violating coverage semantics. Attention pooling reintroduces softmax
+concentration. Noisy-OR provides the right inductive bias: for anchor m, coverage under contin",,,
+B,2605.17456v1,6,1931,754d2d96bbfd5043520d58a8929977cd215ca5e207fa2d371829dae8fb2b4100,"Why noisy-OR for coverage?The S/N/R criteria impose specific requirements on how per-patch
+anchor responses are aggregated into coverage. Mean pooling conflates “many weak responses”
+with “one strong response,” violating coverage semantics. Attention pooling reintroduces softmax
+concentration.",,,
+C,2605.17456v1,6,1931,754d2d96bbfd5043520d58a8929977cd215ca5e207fa2d371829dae8fb2b4100,"Why noisy-OR for coverage?The S/N/R criteria impose specific requirements on how per-patch
+anchor responses are aggregated into coverage. Mean pooling conflates “many weak responses”
+with “one strong response,” violating coverage semantics. Attention pooling reintroduces softmax
+concentration.",,,
+A,2605.17456v1,7,2008,08d2a49125a528b27745eb5c9ef12284f79d4cf28ccfca9c30ad4d0ba11e0d9e,"ng order of marginal coverage gain until the coverage target c= 0.95 is met.
+Because the coverage utility is monotone submodular (Proposition 1), this greedy procedure has a
+principled diminishing-returns objective rather than an unrelated post-hoc ranking. The pseudocode
+is provided in Appendix C.
+Proposition 2(Greedy recovery scope).Let π∈[0,1] N be the continuous selector, S0 ={i:π i >
+0.5} be the thresholded subset, and S∗ be the output of Algorithm 1 with coverage target c. Then the
+followi",,,
+B,2605.17456v1,7,2008,595cb9e9044e4a09f5db8c1f85d775ae7f5565c9de0b65ce350a000d26d2966d,"Because the coverage utility is monotone submodular (Proposition 1), this greedy procedure has a
+principled diminishing-returns objective rather than an unrelated post-hoc ranking. The pseudocode
+is provided in Appendix C.
+Proposition 2(Greedy recovery scope).Let π∈[0,1] N be the continuous selector, S0 ={i:π i >
+0.5} be the thresholded subset, and S∗ be the output of Algorithm 1 with coverage target c. Then the
+following statements hold:
+1.",,,
+C,2605.17456v1,7,2008,595cb9e9044e4a09f5db8c1f85d775ae7f5565c9de0b65ce350a000d26d2966d,"Because the coverage utility is monotone submodular (Proposition 1), this greedy procedure has a
+principled diminishing-returns objective rather than an unrelated post-hoc ranking. The pseudocode
+is provided in Appendix C.
+Proposition 2(Greedy recovery scope).Let π∈[0,1] N be the continuous selector, S0 ={i:π i >
+0.5} be the thresholded subset, and S∗ be the output of Algorithm 1 with coverage target c. Then the
+following statements hold:
+1.",,,
+A,2605.17456v1,8,2533,61b8487127724c47a52f0b3cef581060481027702e249d5a4f309b481bd82852,"70±0.006 0.746±0.011 0.696±0.013 0.932±0.006 0.866±0.019 0.603±0.035 0.835±0.017
++GCE∆△0.038△0.066△0.038△0.000△0.006△0.003△0.000△0.005△0.006△0.006△0.039△0.009
+[Zhang et al., 2022]), hard-mining (MHIM-MIL [Tang et al., 2023]), context-aware (CAMIL [Fourki-
+oti et al., 2024]), and hierarchical (HDMIL [Dong et al., 2025]). This 9×9 grid (81 configurations)
+tests whether GCE generalizes across backbone architectures and dataset characteristics. All training
+and evaluation protocol details are provid",,,
+B,2605.17456v1,8,2533,80783482aa1248f27630f6f07b399a6f1b0b902096a484f07f5c83153c1652b1,"0.811±0.018
++GCE∆△0.039△0.054△0.029△0.006△0.000▽0.002△0.006△0.000△0.004△0.003△0.002△0.006
+HDMIL 0.781±0.027 0.707±0.040 0.891±0.018 0.940±0.010 0.927±0.012 0.970±0.006 0.746±0.011 0.696±0.013 0.932±0.006 0.866±0.019 0.603±0.035 0.835±0.017
++GCE∆△0.038△0.066△0.038△0.000△0.006△0.003△0.000△0.005△0.006△0.006△0.039△0.009
+[Zhang et al., 2022]), hard-mining (MHIM-MIL [Tang et al., 2023]), context-aware (CAMIL [Fourki-
+oti et al., 2024]), and hierarchical (HDMIL [Dong et al., 2025]).",,,
+C,2605.17456v1,8,2533,80783482aa1248f27630f6f07b399a6f1b0b902096a484f07f5c83153c1652b1,"0.811±0.018
++GCE∆△0.039△0.054△0.029△0.006△0.000▽0.002△0.006△0.000△0.004△0.003△0.002△0.006
+HDMIL 0.781±0.027 0.707±0.040 0.891±0.018 0.940±0.010 0.927±0.012 0.970±0.006 0.746±0.011 0.696±0.013 0.932±0.006 0.866±0.019 0.603±0.035 0.835±0.017
++GCE∆△0.038△0.066△0.038△0.000△0.006△0.003△0.000△0.005△0.006△0.006△0.039△0.009
+[Zhang et al., 2022]), hard-mining (MHIM-MIL [Tang et al., 2023]), context-aware (CAMIL [Fourki-
+oti et al., 2024]), and hierarchical (HDMIL [Dong et al., 2025]).",,,
+A,2605.17456v1,9,1415,97cf6041a38aaa58ebd75c83f1429601b45aeb4c21667c864bc2fe706a2f6f6d,"This figure is
+included in the main text because it clarifies what the S/N/R metrics measure at the slide level.
+5.5 Intervention and Budget-Matched Evidence
+Table 4 reports the direct intervention diagnostic for Sufficiency and Necessity. Keeping attention
+top-k changes the full-bag score by ▽0.078, whereas keeping GCE evidence changes it by only
+△0.004; removing attention changes the score by ▽0.033, but removing GCE evidence causes a
+▽0.176 drop. Table 5 controls for evidence size by forcing",,,
+B,2605.17456v1,9,1415,fe3176bb7205b24278ecda59c2a776235cc70b526af49ad190ac36080d44b697,"attention map. The qualitative pattern
+matches the intervention diagnostics: attention highlights broad high-score regions, while GCE
+recovers a compact subset that remains spatially coherent after thresholding and repair. This figure is
+included in the main text because it clarifies what the S/N/R metrics measure at the slide level.
+5.5 Intervention and Budget-Matched Evidence
+Table 4 reports the direct intervention diagnostic for Sufficiency and Necessity.",,,
+C,2605.17456v1,9,1415,fe3176bb7205b24278ecda59c2a776235cc70b526af49ad190ac36080d44b697,"attention map. The qualitative pattern
+matches the intervention diagnostics: attention highlights broad high-score regions, while GCE
+recovers a compact subset that remains spatially coherent after thresholding and repair. This figure is
+included in the main text because it clarifies what the S/N/R metrics measure at the slide level.
+5.5 Intervention and Budget-Matched Evidence
+Table 4 reports the direct intervention diagnostic for Sufficiency and Necessity.",,,
+A,2605.17456v1,15,2050,c254cb67cc31b724ac6df7d2338ac1b847faf97a7306caa772a1f96eaebb11dd,"ty is the intervention variation V(S) =∥f(X)−f(X S)∥,
+which is expensive to optimize directly over discrete subsets. The following proposition states the
+assumption under which uncovered anchor mass controls this variation.
+Proposition 3(Coverage residual bounds representation variation).Let a MIL predictor decompose as
+f(X) =q(g(X)) , where q is Lq-Lipschitz and the bag representation is additive, g(X) = Pi wihi
+with wi ≥0 . Assume the anchor bank is η-complete for the omitted patch contributio",,,
+B,2605.17456v1,15,2050,de549f7565261c8f3bea5b9a0ace23a8c4cccbc0c3aeb753a9e482067167b0d6,"uncovered anchor mass controls this variation.
+Proposition 3(Coverage residual bounds representation variation).Let a MIL predictor decompose as
+f(X) =q(g(X)) , where q is Lq-Lipschitz and the bag representation is additive, g(X) = Pi wihi
+with wi ≥0 . Assume the anchor bank is η-complete for the omitted patch contribution: for any
+subsetS,
+
+X
+i /∈S
+wihi",,,
+C,2605.17456v1,15,2050,de549f7565261c8f3bea5b9a0ace23a8c4cccbc0c3aeb753a9e482067167b0d6,"uncovered anchor mass controls this variation.
+Proposition 3(Coverage residual bounds representation variation).Let a MIL predictor decompose as
+f(X) =q(g(X)) , where q is Lq-Lipschitz and the bag representation is additive, g(X) = Pi wihi
+with wi ≥0 . Assume the anchor bank is η-complete for the omitted patch contribution: for any
+subsetS,
+
+X
+i /∈S
+wihi",,,
